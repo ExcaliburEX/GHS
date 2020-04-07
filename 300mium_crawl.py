@@ -19,7 +19,7 @@ current_path = os.getcwd().replace('\\', '/') + '/'
 
 custom_path = 'F:\\pic\\300MIUM\\'
 
-url = 'https://www.51luxu.com/category/sresource/300mium/page/19'
+url = 'https://www.51luxu.com/category/sresource/300mium/'
 
 
 def open_browser(url):

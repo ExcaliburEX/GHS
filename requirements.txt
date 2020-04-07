@@ -1,5 +1,5 @@
 selenium
-BeautifulSoup
+bs4
 pyautogui
 pyperclip
 opencv-python
