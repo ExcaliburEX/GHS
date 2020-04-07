@@ -1,0 +1,5 @@
+selenium
+BeautifulSoup
+pyautogui
+pyperclip
+opencv-python
