@@ -10,9 +10,9 @@
 [![HitCount](http://hits.dwyl.com/ExcaliburEX/https://githubcom/ExcaliburEX/GHS.svg)](http://hits.dwyl.com/ExcaliburEX/https://githubcom/ExcaliburEX/GHS)
 [![GitHub Issues](https://img.shields.io/github/issues/ExcaliburEX/GHS.svg)](https://github.com/ExcaliburEX/GHS/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ExcaliburEX/GHS.svg)](https://github.com/ExcaliburEX/GHS/pulls)
-![forks](https://img.shields.io/github/forks/ExcaliburEX/GHS)
-![stars](	https://img.shields.io/github/stars/ExcaliburEX/GHS)
-![repo size](https://img.shields.io/github/repo-size/ExcaliburEX/GHS)
+[![forks](https://img.shields.io/github/forks/ExcaliburEX/GHS.svg)](https://github.com/ExcaliburEX/GHS/forks)
+[![stars](	https://img.shields.io/github/stars/ExcaliburEX/GHS.svg)](https://github.com/ExcaliburEX/GHS/stars)
+![repo size](https://img.shields.io/github/repo-size/ExcaliburEX/GHS.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 </div>
 
