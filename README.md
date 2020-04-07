@@ -58,9 +58,9 @@ def compare_img(img1, img2):
 - 文件结构
 
 | F:         | ...|  |  |  |  |
-| ------------- | ------- | -------- | ------- | ------- | -----------------| ---| -----|
-|    |  pic   |  300MIUM  |  300MIUM-xxx.jpg    |  ...  | history.txt| |
-|  |  ... |    fc2 |    fc2-xxxxxx.jpg  |   ... |    history.txt     | |
+| ------------- | ------- | -------- | ------- | ------- | -----------------|
+|    |  pic   |  300MIUM  |  300MIUM-xxx.jpg    |  ...  | history.txt|
+|  |  ... |    fc2 |    fc2-xxxxxx.jpg  |   ... |    history.txt     |
 |  |  ... |    test |   300MIUM-xxx.jpg   |  fc2-xxxxxx.jpg  |  ... |
 
 - 仅供娱乐 
