@@ -1,3 +1,4 @@
+auto-py-to-exe
 selenium
 bs4
 pyautogui

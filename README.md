@@ -31,12 +31,23 @@
   
   分别从fc2.club按照更新时间抓取图片以及300mium抓取所有图片。并设置history.txt文件主要是为了防止重复下载，所以删除移动图片都没关系。
   - 运行效果图
-  ![](https://i.loli.net/2020/04/07/gFXRwJ9xaimDh5W.gif)
+  ![](https://blog-1259799643.cos.ap-shanghai.myqcloud.com/300mium.gif)
 - [AutoSearchAndDownload.py](https://github.com/ExcaliburEX/GHS/blob/master/AutoSearchAndDownload.py)
   
   根据下载的图片，人工选出想看的，然后放到`test`文件夹，程序会自动从btsow搜索磁链，筛选出影片尺寸最大的，然后通过`opencv`定位115的磁链下载等按钮，用`pyautogui`实现点击，从而实现搜索云下载自动化。
   - 运行效果图
   ![](https://i.loli.net/2020/04/07/V5pSmMNue8CRj1A.gif)
+
+
+- [AutoSearchAndDownload_Thunder.py](https://github.com/ExcaliburEX/GHS/blob/master/AutoSearchAndDownload_Thunder.py)
+  功能就是115的镜像版，针对迅雷设计的。对于迅雷的使用有几个注意点：
+  - 下载悬浮窗一定要开着，而且在开始时，保持没有任务在下载，也就是悬浮窗要保持成鸟的图标的状态，当然我的截图是VIP版的，你可以在自己电脑上截图成你的悬浮窗模样替换；
+  - 因为第一个任务下载完之后，下一个任务开始时还是需要寻找悬浮窗的鸟图标，所以每次新建完任务之后需要暂停，以免悬浮窗显示的是速度值而不是鸟图标，导致点击失败。  
+  - 所有的截图在我的电脑上匹配很成功，在你的💻上使用时，对应地修改一下那些截图。
+  - 运行效果图
+  ![](https://blog-1259799643.cos.ap-shanghai.myqcloud.com/Thunder_demo.gif)
+
+
 # 🍧补充
 
 - 防止有些磁链已经下载过导致的下载框没有正常关闭，用了判断本地的按钮截图与当前屏幕按钮截图是否相似，判断下载框中的某个部位是否还存在来确定是否下载成功。相似度高，说明下载框没有正常关闭，则已经下载过，导致出现了下载提示，然后启动“关闭”按钮。
