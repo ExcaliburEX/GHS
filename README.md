@@ -39,14 +39,14 @@
   ![](https://i.loli.net/2020/04/07/V5pSmMNue8CRj1A.gif)
 
 
-- [AutoSearchAndDownload_Thunder.py](https://github.com/ExcaliburEX/GHS/blob/master/AutoSearchAndDownload_Thunder.py)
+- [AutoSearchAndDownload_Thunder.py](https://github.com/ExcaliburEX/GHS/blob/master/AutoSearchAndDownload.py)
 
   功能就是115的镜像版，针对迅雷设计的。对于迅雷的使用有几个注意点：
   - 下载悬浮窗一定要开着，而且在开始时，保持没有任务在下载，也就是悬浮窗要保持成鸟的图标的状态，当然我的截图是VIP版的，你可以在自己电脑上截图成你的悬浮窗模样替换；
   - 因为第一个任务下载完之后，下一个任务开始时还是需要寻找悬浮窗的鸟图标，所以每次新建完任务之后需要暂停，以免悬浮窗显示的是速度值而不是鸟图标，导致点击失败。  
   - 所有的截图在我的电脑上匹配很成功，在你的💻上使用时，对应地修改一下那些截图。
   - 运行效果图
-  ![](https://blog-1259799643.cos.ap-shanghai.myqcloud.com/Thunder_demo.gif)
+  ![](https://github.com/ExcaliburEX/GHS/blob/master/Thunder_demo.gif)
 
 
 # 🍧补充
