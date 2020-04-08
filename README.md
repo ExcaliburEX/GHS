@@ -31,7 +31,8 @@
   
   分别从fc2.club按照更新时间抓取图片以及300mium抓取所有图片。并设置history.txt文件主要是为了防止重复下载，所以删除移动图片都没关系。
   - 运行效果图
-  ![](https://blog-1259799643.cos.ap-shanghai.myqcloud.com/300mium.gif)
+  ![](https://github.com/ExcaliburEX/GHS/blob/master/300mium.gif)
+
 - [AutoSearchAndDownload.py](https://github.com/ExcaliburEX/GHS/blob/master/AutoSearchAndDownload.py)
   
   根据下载的图片，人工选出想看的，然后放到`test`文件夹，程序会自动从btsow搜索磁链，筛选出影片尺寸最大的，然后通过`opencv`定位115的磁链下载等按钮，用`pyautogui`实现点击，从而实现搜索云下载自动化。
