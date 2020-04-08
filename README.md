@@ -39,7 +39,7 @@
   ![](https://i.loli.net/2020/04/07/V5pSmMNue8CRj1A.gif)
 
 
-- [AutoSearchAndDownload_Thunder.py](https://github.com/ExcaliburEX/GHS/blob/master/AutoSearchAndDownload.py)
+- [AutoSearchAndDownload_Thunder.py](https://github.com/ExcaliburEX/GHS/blob/master/AutoSearchAndDownload_Thunder.py)
 
   功能就是115的镜像版，针对迅雷设计的。对于迅雷的使用有几个注意点：
   - 下载悬浮窗一定要开着，而且在开始时，保持没有任务在下载，也就是悬浮窗要保持成鸟的图标的状态，当然我的截图是VIP版的，你可以在自己电脑上截图成你的悬浮窗模样替换；
