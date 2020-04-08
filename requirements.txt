@@ -1,6 +1,3 @@
-os
-re
-time
 lxml
 skimage.measure
 auto-py-to-exe
