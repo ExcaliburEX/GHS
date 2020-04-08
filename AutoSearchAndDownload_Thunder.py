@@ -215,4 +215,5 @@ def Auto():
 
 
 if __name__ == "__main__":
+    os.chdir("ThunderImg/")
     Auto()

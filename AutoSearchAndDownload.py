@@ -68,6 +68,7 @@ def Auto():
         if n != 'log':
         # log文件用来判断有没有下载失败的影片，所以不需要加入搜索
             try:
+                
                 driver.get(url + n)
                 Size = [x.text for x in driver.find_elements_by_xpath("//*[@class='col-sm-2 col-lg-1 hidden-xs text-right size']")]
                 # 获取搜索到的磁链的大小
@@ -128,4 +129,5 @@ def Auto():
     print("此次一共消耗 %d 个链接任务！, %d 个任务失败"%(cnt,Fcnt))
 
 if __name__ == "__main__":
+    os.chdir("115Img/")
     Auto()

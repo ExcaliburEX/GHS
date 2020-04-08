@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=300 height=150 src="https://i.loli.net/2020/04/07/3PRFLGBgkeKtbCZ.png" alt="Project logo"></a>
+ <img width=300 height=150 src="https://i.loli.net/2020/04/09/i7RCF1EzV4BKkWe.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">AutoSearchAndDownload</h3>
