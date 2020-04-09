@@ -5,7 +5,4 @@ python:
 install:
     - pip install -r requirements.txt
 script:
-    - python Crawl_300mium.py test
-    - python AutoSearchAndDownload.py test
-    - python AutoSearchAndDownload_Thunder.py test
-    - python Crawl_fc2.py test
+    - python main.py test
