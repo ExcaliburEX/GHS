@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=300 height=150 src="https://blog-1259799643.cos.ap-shanghai.myqcloud.com/AutoS%26D.png" alt="Project logo"></a>
+ <img width=300 height=150 src="https://blog-1259799643.cos.ap-shanghai.myqcloud.com/AutoS%26D_ytb.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">AutoSearchAndDownload</h3>
