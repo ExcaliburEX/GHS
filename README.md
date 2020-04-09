@@ -8,6 +8,7 @@
 <div align="center">
 
 [![HitCount](http://hits.dwyl.com/ExcaliburEX/https://githubcom/ExcaliburEX/GHS.svg)](http://hits.dwyl.com/ExcaliburEX/https://githubcom/ExcaliburEX/GHS)
+[![Build Status](https://www.travis-ci.org/ExcaliburEX/GHS.svg?branch=master)](https://www.travis-ci.org/ExcaliburEX/GHS)
 [![GitHub Issues](https://img.shields.io/github/issues/ExcaliburEX/GHS.svg)](https://github.com/ExcaliburEX/GHS/issues)
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/ExcaliburEX/GHS.svg)](https://github.com/ExcaliburEX/GHS/pulls)
 ![forks](https://img.shields.io/github/forks/ExcaliburEX/GHS)
