@@ -1,6 +1,6 @@
 lxml
 selenium
 bs4
-PyAutoGUI==0.9.33
+PyAutoGUI==0.9.50
 pyperclip
 opencv-python
