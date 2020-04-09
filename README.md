@@ -19,7 +19,7 @@
 ---
 
 # ✨开始
-
+- 直接运行[main.py](https://github.com/ExcaliburEX/GHS/blob/master/main.py)即可
 ## 💥1. 运行环境
 - chromedriver，通过`chrome://version`查看自己的版本，然后到[chromedriver](http://chromedriver.storage.googleapis.com/index.html)下载对应的chromedriver版本，随便放在哪个文件夹，并把当前文件夹加入到环境变量即可。
 - ```python

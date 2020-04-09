@@ -12,8 +12,9 @@ from skimage.measure import compare_ssim
 
 
 class AutoSearchAndDownload_Thunder:
-    def main(self):
-        custom_path = 'F:\\pic\\test\\'
+    def main(self, Dir='F:\\pic\\test\\'):
+        # custom_path = 'F:\\pic\\test\\'
+        custom_path = Dir
         url = 'https://btsow.club/search/'
 
         def open_browser(url):

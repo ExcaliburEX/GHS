@@ -5,16 +5,16 @@ import pyautogui
 from selenium.webdriver.support.ui import WebDriverWait
 import pyperclip
 import os
-
+import PySimpleGUI as sg
 
 # 主要功能就是访问300mium所有影片详情页，然后挨个下载封面
 class Crawl_300mium:
-    def main(self):
-
+    def main(self, Dir='F:\\pic\\300MIUM\\', page=1):
+        print = sg.Print
         current_path = os.getcwd().replace('\\', '/') + '/'
-        custom_path = 'F:\\pic\\300MIUM\\'
-        url = 'https://www.51luxu.com/category/sresource/300mium/'
-
+        # custom_path = 'F:\\pic\\300MIUM\\'
+        custom_path = Dir
+        url = 'https://www.51luxu.com/category/sresource/300mium/' + 'page/' + str(page)
         def open_browser(url):
             driver = webdriver.Chrome()
             driver.get(url)
@@ -74,6 +74,7 @@ class Crawl_300mium:
                             f.writelines('\n')
                             f.close()
                         # 在txt中加入当前下载的图片名字
+                        print("%s 下载完成！"%(title))
                     driver1.quit()
                     print("第 %d 页爬完"%(page))
                     button =  "//*[@class='next page-numbers']"  #翻页按钮

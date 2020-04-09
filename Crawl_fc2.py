@@ -10,13 +10,11 @@ from bs4 import BeautifulSoup
 
 # 主要功能就是访问fc2所有影片按时间更新的详情页，然后挨个下载具体影片的视频截图
 class Crawl_fc2:
-    def main(self):
-        url = 'https://fc2club.com/index.php?m=content&c=index&a=lists&catid=12'
+    def main(self, Dir='F:\\pic\\fc2\\', page=1):
+        url = 'https://fc2club.com/index.php?m=content&c=index&a=lists&catid=12' + '&page=' + str(page)
         url_prefix = 'https://fc2club.com/html/'
-
-        custom_path = 'F:\\pic\\fc2' + '\\'
-
-
+        # custom_path = 'F:\\pic\\fc2' + '\\'
+        custom_path = Dir
         def open_browser(url):
             driver = webdriver.Chrome()
             driver.get(url)
@@ -67,6 +65,7 @@ class Crawl_fc2:
                         f.writelines('\n')
                         f.close()
                     # 在txt中加入当前下载的图片名字
+                    print("%s 下载完成！" % (name[i]))
                     time.sleep(0.2)
                 driver_info.quit()
                 print("第 %d 页爬完" % (page + 1))
