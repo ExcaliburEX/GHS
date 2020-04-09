@@ -7,18 +7,20 @@ import pyperclip
 import os
 
 # 主要功能就是访问300mium所有影片详情页，然后挨个下载封面
-class Crawl_300mium:
-    def main(self, Dir='F:\\pic\\300MIUM\\', page=1):
+class Crawl_51luxu:
+    def main(self, Dir='F:\\pic\\', page=1, category='300MIUM'):
         current_path = os.getcwd().replace('\\', '/') + '/'
         # custom_path = 'F:\\pic\\300MIUM\\'
-        custom_path = Dir
-        url = 'https://www.51luxu.com/category/sresource/300mium/' + 'page/' + str(page)
+        custom_path = Dir + category + "\\"
+        url = 'https://www.51luxu.com/category/sresource/' + category + '/page/' + str(page)
         def open_browser(url):
             driver = webdriver.Chrome()
             driver.get(url)
             return driver
 
         def scrapy(driver):
+            if not os.path.exists(Dir):
+                os.mkdir(Dir)
             if not os.path.exists(custom_path):
                 os.mkdir(custom_path)
             Exist = []
@@ -44,13 +46,41 @@ class Crawl_300mium:
                         src2.append(i.split('=')[1].replace("\"",""))
                     for i in name1:
                         name2.append(i.split('=')[1].replace("\"", ""))
-                    src3 = [x for x in src2 if "300" in x]
-                    name3 = [x for x in name2 if "300" in x]
+                    if category == "Scute":
+                        pattern = "S-cute"
+                    else:
+                        pattern = category
+                    try:
+                        temp = [x.replace("inggo.info", "paypp.xyz") for x in src2]
+                        src3 = [x for x in temp if 'images.paypp.xyz/wp-content/uploads' in x]
+                    except:
+                        src3 = [x for x in src2 if 'images.paypp.xyz/wp-content/uploads' in x]
+                    name3 = [x for x in name2 if pattern in x]
+                    if len(name3) < 12:
+                        name3 = name2
                     # 上面是name3和src3 保存了主页面的番号和相应的详情页的链接
                     # 接下来启动第二个浏览器对各个详情页的视频截图进行抓取
                     driver1 = webdriver.Chrome()
-                    for i in range(12):
-                        title = name3[i].split('【')[1].split('】')[0] # 简化一下番号的名字
+                    for i in range(len(src3)):
+                        try:
+                            if '[' and '【' not in name3[i]:
+                                title = name3[i]
+                            else:
+                                title = name3[i].split('【')[1].split('】')[0] # 简化一下番号的名字
+                        except:
+                            title = name3[i].split('[')[1].split(']')[0]
+                        if i >= 1:
+                            try:
+                                if name3[i].split('[')[1].split(']')[0] == name3[i-1].split('[')[1].split(']')[0]:
+                                    title = name3[i].split(']')[1].replace("[","")
+                            except:
+                                pass
+                        if i >= 1:
+                            try:
+                                if name3[i].split('【')[1].split('】')[0] == name3[i-1].split('【')[1].split('】')[0]:
+                                    title = name3[i].split('】')[1].replace("【","")
+                            except:
+                                pass
                         if title in Exist:
                             print("%s 已经下载！" % (title))
                             continue
@@ -79,6 +109,13 @@ class Crawl_300mium:
                     driver.find_elements_by_xpath(button)[0].click()
                 except:
                     print("第 %d 页出错！"%(page))
+                    driver1.quit()
+                    try:
+                        button =  "//*[@class='next page-numbers']"  #翻页按钮
+                        driver.find_elements_by_xpath(button)[0].click()
+                    except:
+                        print("爬取完毕！")
+                        break
                     continue
 
         driver = open_browser(url)

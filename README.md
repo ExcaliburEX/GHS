@@ -28,9 +28,9 @@
   ```
 - `button.png`，`download.png`，`valid.png`，`close.png`根据个人电脑的分辨率以及字体显示的不同需要自己截图修改一下。
 ## 🍓2. 功能介绍
-- [Crawl_fc2.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_fc2.py)和[Crawl_300mium.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_300mium.py)
+- [Crawl_fc2.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_fc2.py)和[Crawl_51luxu.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_51luxu.py)
   
-  分别从fc2.club按照更新时间抓取图片以及300mium抓取所有图片。并设置history.txt文件主要是为了防止重复下载，所以删除移动图片都没关系。
+  分别从fc2.club按照更新时间抓取图片以及51luxu上抓取所有图片，其中51luxu可选片商有200GANA，230ORE，259LUXU，261ARA，277DCV，300MAAN，300MIUM，SIRO，Scute，KIRAY等。并设置history.txt文件主要是为了防止重复下载，所以删除移动图片都没关系。
   - 运行效果图
   ![](https://github.com/ExcaliburEX/GHS/blob/master/300mium.gif)
 
