@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=300 height=150 src="https://i.loli.net/2020/04/09/i7RCF1EzV4BKkWe.png" alt="Project logo"></a>
+ <img width=300 height=150 src="https://blog-1259799643.cos.ap-shanghai.myqcloud.com/AutoS%26D.png" alt="Project logo"></a>
 </p>
 
 <h3 align="center">AutoSearchAndDownload</h3>
@@ -27,7 +27,7 @@
   ```
 - `button.png`，`download.png`，`valid.png`，`close.png`根据个人电脑的分辨率以及字体显示的不同需要自己截图修改一下。
 ## 🍓2. 功能介绍
-- [fc2_crawl.py](https://github.com/ExcaliburEX/GHS/blob/master/fc2_crawl.py)和[300mium_crawl.py](https://github.com/ExcaliburEX/GHS/blob/master/300mium_crawl.py)
+- [Crawl_fc2.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_fc2.py)和[Crawl_300mium.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_300mium.py)
   
   分别从fc2.club按照更新时间抓取图片以及300mium抓取所有图片。并设置history.txt文件主要是为了防止重复下载，所以删除移动图片都没关系。
   - 运行效果图
