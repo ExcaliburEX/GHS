@@ -3,6 +3,7 @@ import time, re
 from bs4 import BeautifulSoup
 import pyautogui
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import TimeoutException
 import pyperclip
 import os
 
@@ -96,13 +97,26 @@ class Crawl_51luxu:
                         pyautogui.hotkey('ctrlleft', 'V') # 粘贴
                         time.sleep(1)
                         pyautogui.press('enter') # 确认
-                        time.sleep(0.2)
-                        with open(custom_path + 'history.txt', 'a+') as f:
-                            f.writelines(title)
-                            f.writelines('\n')
-                            f.close()
+                        time.sleep(1)
+                        while True:
+                            filelist = os.listdir(custom_path)
+                            if title + '.jpg' in filelist:
+                                with open(custom_path + 'history.txt', 'a+') as f:
+                                    f.writelines(title)
+                                    f.writelines('\n')
+                                    f.close()
+                                print("%s 下载完成！" % (title))
+                                break
+                            else:
+                                print("等待响应")
+                                time.sleep(2)
+                                pyautogui.hotkey('ctrlleft', 'V')  # 粘贴
+                                time.sleep(1)
+                                pyautogui.press('enter')  # 确认
+                                time.sleep(1)
                         # 在txt中加入当前下载的图片名字
                         print("%s 下载完成！"%(title))
+                    time.sleep(2)
                     driver1.quit()
                     print("第 %d 页爬完"%(page))
                     button =  "//*[@class='next page-numbers']"  #翻页按钮

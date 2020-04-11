@@ -9,7 +9,7 @@ import os
 from bs4 import BeautifulSoup
 import cv2
 from skimage.measure import compare_ssim
-
+from selenium.common.exceptions import TimeoutException
 
 class AutoSearchAndDownload_Thunder:
     def main(self, Dir='F:\\pic\\test\\'):
@@ -126,7 +126,17 @@ class AutoSearchAndDownload_Thunder:
                 if n != 'log':
                     # log文件用来判断有没有下载失败的影片，所以不需要加入搜索
                     try:
-                        driver.get(url + n)
+                        driver.set_page_load_timeout(10)
+                        while True:
+                            try:
+                                driver.get(url + n)
+                                break
+                            except TimeoutException:
+                                print("加载超时，启动F5刷新,等待5秒")
+                                pyautogui.click(x=509, y=33)
+                                pyautogui.hotkey('f5')
+                                driver.get(url + n)
+                                time.sleep(5)
                         Size = [x.text for x in driver.find_elements_by_xpath(
                             "//*[@class='col-sm-2 col-lg-1 hidden-xs text-right size']")]
                         # 获取搜索到的磁链的大小
@@ -138,7 +148,17 @@ class AutoSearchAndDownload_Thunder:
                         print('%s 一共有 %d 个种子' % (n, len(Size)))
                         print("%s 的尺寸最大为 %s" % (n, Size[MaxVideoSizeIndex(Size)]))
                         time.sleep(2)
-                        driver.get(href[MaxVideoSizeIndex(Size)])
+                        driver.set_page_load_timeout(10)
+                        while True:
+                            try:
+                                driver.get(href[MaxVideoSizeIndex(Size)])
+                                break
+                            except TimeoutException:
+                                print("加载超时，启动F5刷新,等待5秒")
+                                pyautogui.click(x=509, y=33)
+                                pyautogui.hotkey('f5')
+                                driver.get(href[MaxVideoSizeIndex(Size)])
+                                time.sleep(5)
                         # 进入影片尺寸最大的影片磁链页
                         pyperclip.copy([x.text for x in driver.find_elements_by_xpath(
                             "//*[@class='magnet-link hidden-xs']")][0])

@@ -7,6 +7,7 @@ import pyautogui
 import pyperclip
 from lxml import etree
 import datetime
+from selenium.common.exceptions import TimeoutException
 
 class Crawl_141jav:
     def main(self, Dir='F:\\pic\\141jav\\', startTime= datetime.date.today()):
@@ -44,19 +45,42 @@ class Crawl_141jav:
                     f.close()
             for date in timeList:
                 try:
-                    driver.get(url+date)
+                    driver.set_page_load_timeout(10)
+                    while True:
+                        try:
+                            driver.get(url+date)
+                            break
+                        except TimeoutException:
+                            print("加载超时，启动F5刷新,等待5秒")
+                            pyautogui.click(x=509, y=33)
+                            pyautogui.hotkey('f5')
+                            driver.get(url+date)
+                            time.sleep(5)
                     if not os.path.exists(custom_path):
                         os.mkdir(custom_path)
                     if not os.path.exists(custom_path+date.replace('/','-')+'\\'):
                         os.mkdir(custom_path+date.replace('/', '-')+'\\')
+                    videoNumber = 0
                     for page in range(100):
                         try:
-                            driver.get(url+date+'?page='+str(page+1))
+                            driver.set_page_load_timeout(10)
+                            while True:
+                                try:
+                                    driver.get(url+date+'?page='+str(page+1))
+                                    break
+                                except TimeoutException:
+                                    print("加载超时，启动F5刷新，等待5秒")
+                                    pyautogui.click(x=509, y=33)
+                                    pyautogui.hotkey('f5')
+                                    driver.get(url+date+'?page='+str(page+1))
+                                    time.sleep(5)
                             content = driver.page_source.encode('utf-8')
                             html = etree.HTML(content)
                             soup = BeautifulSoup(content, 'lxml')
                             href = [x.attrib['src'] for x in html.xpath("//img[@class='image']")]
+                            videoNumber += len(href)
                             if len(href) == 0:
+                                print("%s 共 %d 部片！" % (date, videoNumber))
                                 break
                             name = [x.text.replace("\n", "") for x in html.xpath(
                                 "//h5[@class='title is-4 is-spaced']/a")]
@@ -74,11 +98,24 @@ class Crawl_141jav:
                                 pyautogui.hotkey('ctrlleft', 'V')
                                 time.sleep(1)
                                 pyautogui.press('enter')
-                                with open(custom_path + 'history.txt', 'a+') as f:
-                                    f.writelines(name[i])
-                                    f.writelines('\n')
-                                    f.close()
-                                print("%s 下载完成！" % (name[i]))
+                                time.sleep(1)
+                                while True: 
+                                    filelist = os.listdir(custom_path+date.replace('/', '-')+'\\')
+                                    if name[i] + '.jpg' in filelist:
+                                        with open(custom_path + 'history.txt', 'a+') as f:
+                                            f.writelines(name[i])
+                                            f.writelines('\n')
+                                            f.close()
+                                        print("%s 下载完成！" % (name[i]))
+                                        break   
+                                    else:
+                                        print("等待响应")
+                                        time.sleep(2)
+                                        pyautogui.hotkey('ctrlleft', 'V')  # 粘贴
+                                        time.sleep(1)
+                                        pyautogui.press('enter')  # 确认
+                                        time.sleep(1)
+                            time.sleep(2)    
                             driver_info.quit()
                         except:
                             print("%s 共 %d 页结束！" % (date, page+1))
