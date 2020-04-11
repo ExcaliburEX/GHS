@@ -22,21 +22,26 @@
 # ✨开始
 - 直接运行[main.py](https://github.com/ExcaliburEX/GHS/blob/master/main.py)即可
 - 运行截图
-  ![](https://github.com/ExcaliburEX/GHS/blob/master/main.gif)
+  ![](https://github.com/ExcaliburEX/GHS/blob/master/gif/main.gif)
 
 ## 💥1. 运行环境
 - chromedriver，通过`chrome://version`查看自己的版本，然后到[chromedriver](http://chromedriver.storage.googleapis.com/index.html)下载对应的chromedriver版本，随便放在哪个文件夹，并把当前文件夹加入到环境变量即可。
 - ```python
   pip install -r requirements.txt
   ```
-- `button.png`，`download.png`，`valid.png`，`close.png`根据个人电脑的分辨率以及字体显示的不同需要自己截图修改一下。
+- 根据个人电脑的分辨率以及字体显示的不同需要自己截图修改一下[`\115Image`](https://github.com/ExcaliburEX/GHS/blob/master/115Image)以及[`\ThunderImage`](https://github.com/ExcaliburEX/GHS/blob/master/ThunderImage)。
 ## 🍓2. 功能介绍
 - [Crawl_fc2.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_fc2.py)和[Crawl_51luxu.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_51luxu.py)
   
-  分别从fc2.club按照更新时间抓取图片以及51luxu上抓取所有图片，其中51luxu可选片商有200GANA，230ORE，259LUXU，261ARA，277DCV，300MAAN，300MIUM，SIRO，Scute，KIRAY等。并设置history.txt文件主要是为了防止重复下载，所以删除移动图片都没关系。
+  分别从`fc2.club`按照更新时间抓取图片以及`51luxu`上抓取所有图片，其中`51luxu`可选片商有`200GANA`，`230ORE`，`259LUXU`，`261ARA`，`277DCV`，`300MAAN`，`300MIUM`，`SIRO`，`Scute`，`KIRAY`等。并设置`history.txt`文件主要是为了防止重复下载，所以删除移动图片都没关系。
   - 运行效果图
-  ![](https://github.com/ExcaliburEX/GHS/blob/master/300mium.gif)
+  ![](https://github.com/ExcaliburEX/GHS/blob/master/gif/300mium.gif)
 
+- [Crawl_141jav.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_141jav.py)<br><br>
+  从今天往前抓取`141jav`上每日更新的番剧图片，也可以自定义日期。因为`141jav`架构在两年前更新过，所以两年以前的老`141jav`上的番剧列表貌似已经无法访问了。
+
+  - 网站布局图：
+  ![141jav.png](https://i.loli.net/2020/04/11/Ov912TWezAUtFZL.png)
 - [AutoSearchAndDownload.py](https://github.com/ExcaliburEX/GHS/blob/master/AutoSearchAndDownload.py)
   
   根据下载的图片，人工选出想看的，然后放到`test`文件夹，程序会自动从btsow搜索磁链，筛选出影片尺寸最大的，然后通过`opencv`定位115的磁链下载等按钮，用`pyautogui`实现点击，从而实现搜索云下载自动化。
@@ -51,7 +56,7 @@
   - 因为第一个任务下载完之后，下一个任务开始时还是需要寻找悬浮窗的鸟图标，所以每次新建完任务之后需要暂停，以免悬浮窗显示的是速度值而不是鸟图标，导致点击失败。  
   - 所有的截图在我的电脑上匹配很成功，在你的💻上使用时，对应地修改一下那些截图。
   - 运行效果图
-  ![](https://github.com/ExcaliburEX/GHS/blob/master/Thunder_demo.gif)
+  ![](https://github.com/ExcaliburEX/GHS/blob/master/gif/Thunder_demo.gif)
 
 
 # 🍧补充
