@@ -30,7 +30,7 @@
 - ```python
   pip install -r requirements.txt
   ```
-- 根据个人电脑的分辨率以及字体显示的不同需要自己截图修改一下[`\115Image`](https://github.com/ExcaliburEX/GHS/tree/master/115Image)以及[`\ThunderImage`](https://github.com/ExcaliburEX/GHS/tree/master/ThunderImage)。
+- 根据个人电脑的分辨率以及字体显示的不同需要自己截图修改一下[`\115Img`](https://github.com/ExcaliburEX/GHS/tree/master/115Img)以及[`\ThunderImg`](https://github.com/ExcaliburEX/GHS/tree/master/ThunderImg)。
 ## 🍓2. 功能介绍
 - [Crawl_fc2.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_fc2.py)和[Crawl_51luxu.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_51luxu.py)
   
