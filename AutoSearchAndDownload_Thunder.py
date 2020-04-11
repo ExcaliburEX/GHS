@@ -233,6 +233,10 @@ class AutoSearchAndDownload_Thunder:
                         # 出错后将失败的番号加入log.txt
                         # 然后关掉下载框，防止后续任务失败
                         continue
+            JudgeIfShow('bird')
+            click_button_right('bird')
+            time.sleep(1)
+            click_button('BeginAllTask', 1)
             print("此次一共消耗 %d 个链接任务！, %d 个任务失败" % (cnt, Fcnt))
 
         os.chdir("ThunderImg/")
