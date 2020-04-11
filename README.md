@@ -20,7 +20,8 @@
 ---
 
 # ✨开始
-- 直接运行[main.py](https://github.com/ExcaliburEX/GHS/blob/master/main.py)即可
+- 第一种，直接下载最新的[release](https://github.com/ExcaliburEX/GHS/releases/tag/V1.0)即可，不需要下面的运行环境
+- 第二种，运行[main.py](https://github.com/ExcaliburEX/GHS/blob/master/main.py)，需要设置下文的运行环境
 - 运行截图
   ![](https://github.com/ExcaliburEX/GHS/blob/master/gif/main.gif)
 
@@ -29,7 +30,7 @@
 - ```python
   pip install -r requirements.txt
   ```
-- 根据个人电脑的分辨率以及字体显示的不同需要自己截图修改一下[`\115Image`](https://github.com/ExcaliburEX/GHS/blob/master/115Image)以及[`\ThunderImage`](https://github.com/ExcaliburEX/GHS/blob/master/ThunderImage)。
+- 根据个人电脑的分辨率以及字体显示的不同需要自己截图修改一下[`\115Image`](https://github.com/ExcaliburEX/GHS/tree/master/115Image)以及[`\ThunderImage`](https://github.com/ExcaliburEX/GHS/tree/master/ThunderImage)。
 ## 🍓2. 功能介绍
 - [Crawl_fc2.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_fc2.py)和[Crawl_51luxu.py](https://github.com/ExcaliburEX/GHS/blob/master/Crawl_51luxu.py)
   
