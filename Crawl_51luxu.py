@@ -13,9 +13,13 @@ class Crawl_51luxu:
         current_path = os.getcwd().replace('\\', '/') + '/'
         # custom_path = 'F:\\pic\\300MIUM\\'
         custom_path = Dir + category + "\\"
+        chrome_opts = webdriver.ChromeOptions()
+        chrome_opts.add_argument("--headless")
+        chrome_opts.add_experimental_option(
+            'excludeSwitches', ['enable-logging'])
         url = 'https://www.51luxu.com/category/sresource/' + category + '/page/' + str(page)
         def open_browser(url):
-            driver = webdriver.Chrome()
+            driver = webdriver.Chrome(options=chrome_opts)
             driver.get(url)
             return driver
 
@@ -61,7 +65,7 @@ class Crawl_51luxu:
                         name3 = name2
                     # 上面是name3和src3 保存了主页面的番号和相应的详情页的链接
                     # 接下来启动第二个浏览器对各个详情页的视频截图进行抓取
-                    driver1 = webdriver.Chrome()
+                    driver1 = webdriver.Chrome(options=chrome_opts)
                     for i in range(len(src3)):
                         try:
                             if '[' and '【' not in name3[i]:
@@ -88,16 +92,18 @@ class Crawl_51luxu:
                         # 前文提到的判断是否下过，如果是，后面就不用进行了
                         # 进入相应链接的详情页
                         driver1.get(src3[i])
-                        wait = WebDriverWait(driver1, 10) # 等待浏览器相应，删除也可以
-                        pyautogui.rightClick(x=500, y=500) # 右击图片，位置可根据自己的屏幕调整
-                        pyautogui.typewrite(['V']) # 另存为的快捷键为 V
-                        time.sleep(2) # 等待电脑响应
-                        pyperclip.copy(custom_path + title + '.jpg')  # 复制文件名加路径到粘贴板
-                        time.sleep(1)
-                        pyautogui.hotkey('ctrlleft', 'V') # 粘贴
-                        time.sleep(1)
-                        pyautogui.press('enter') # 确认
-                        time.sleep(1)
+                        img = driver1.find_element_by_xpath("//html/body/img")
+                        img.screenshot(custom_path + title + '.jpg')
+                        # wait = WebDriverWait(driver1, 10) # 等待浏览器相应，删除也可以
+                        # pyautogui.rightClick(x=500, y=500) # 右击图片，位置可根据自己的屏幕调整
+                        # pyautogui.typewrite(['V']) # 另存为的快捷键为 V
+                        # time.sleep(2) # 等待电脑响应
+                        # pyperclip.copy(custom_path + title + '.jpg')  # 复制文件名加路径到粘贴板
+                        # time.sleep(1)
+                        # pyautogui.hotkey('ctrlleft', 'V') # 粘贴
+                        # time.sleep(1)
+                        # pyautogui.press('enter') # 确认
+                        # time.sleep(1)
                         while True:
                             filelist = os.listdir(custom_path)
                             if title + '.jpg' in filelist:
@@ -110,13 +116,13 @@ class Crawl_51luxu:
                             else:
                                 print("等待响应")
                                 time.sleep(2)
-                                pyautogui.hotkey('ctrlleft', 'V')  # 粘贴
-                                time.sleep(1)
-                                pyautogui.press('enter')  # 确认
-                                time.sleep(1)
+                                # pyautogui.hotkey('ctrlleft', 'V')  # 粘贴
+                                # time.sleep(1)
+                                # pyautogui.press('enter')  # 确认
+                                # time.sleep(1)
                         # 在txt中加入当前下载的图片名字
                         print("%s 下载完成！"%(title))
-                    time.sleep(2)
+                    time.sleep(0.5)
                     driver1.quit()
                     print("第 %d 页爬完"%(page))
                     button =  "//*[@class='next page-numbers']"  #翻页按钮

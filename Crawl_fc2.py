@@ -14,9 +14,12 @@ class Crawl_fc2:
         url = 'https://fc2club.com/index.php?m=content&c=index&a=lists&catid=12' + '&page=' + str(page)
         url_prefix = 'https://fc2club.com/html/'
         # custom_path = 'F:\\pic\\fc2' + '\\'
+        chrome_opts = webdriver.ChromeOptions()
+        chrome_opts.add_argument("--headless")
+        chrome_opts.add_experimental_option('excludeSwitches', ['enable-logging'])
         custom_path = Dir
         def open_browser(url):
-            driver = webdriver.Chrome()
+            driver = webdriver.Chrome(options=chrome_opts)
             driver.get(url)
             return driver
 
@@ -39,7 +42,7 @@ class Crawl_fc2:
                     html = etree.HTML(html)
                     name = [x.text for x in html.xpath("//a[@class='author']")]
                     # 返回的是element的对象，所以要取它的text
-                    driver_info = webdriver.Chrome()
+                    driver_info = webdriver.Chrome(options=chrome_opts)
                     for i in range(len(name)):
                         if name[i] in Exist:
                             print('%s 已经存在！' % (name[i]))
@@ -52,11 +55,12 @@ class Crawl_fc2:
                                 driver_info.get(url_prefix + name[i] + '.html')
                                 break
                             except TimeoutException:
-                                print("加载超时，启动F5刷新,等待5秒")
-                                pyautogui.click(x=509, y=33)
-                                pyautogui.hotkey('f5')
-                                driver_info.get(url_prefix + name[i] + '.html')
-                                time.sleep(5)
+                                print("加载超时，启动F5刷新,等待3秒")
+                                # pyautogui.click(x=509, y=33)
+                                # pyautogui.hotkey('f5')
+                                # driver_info.get(url_prefix + name[i] + '.html')
+                                driver_info.refresh()
+                                time.sleep(3)
                         # 进入各个影片的详情页，因为链接就是名字加html，所以直接保存番号就行了
                         content = driver_info.page_source.encode('utf-8')
                         soup = BeautifulSoup(content, 'lxml')
@@ -68,20 +72,23 @@ class Crawl_fc2:
                                 driver_info.get(href) # 进入视频截图页面
                                 break
                             except TimeoutException:
-                                print("加载超时，启动F5刷新,等待5秒")
-                                pyautogui.click(x=509, y=33)
-                                pyautogui.hotkey('f5')
-                                driver_info.get(href)
-                                time.sleep(5)
-                        wait = WebDriverWait(driver_info, 10)  # 等待浏览器相应，删除也可以
-                        pyautogui.rightClick(x=500, y=500)  # 右击图片，位置可根据自己的屏幕调整
-                        pyautogui.typewrite(['V'])  # 另存为的快捷键为 V
-                        time.sleep(3)
-                        pyperclip.copy(custom_path + name[i] + '.jpg')  # 复制文件名加路径到粘贴板
-                        pyautogui.hotkey('ctrlleft', 'V')  # 粘贴
-                        time.sleep(1)
-                        pyautogui.press('enter')  # 确认
-                        time.sleep(1)
+                                print("加载超时，启动F5刷新,等待3秒")
+                                # pyautogui.click(x=509, y=33)
+                                # pyautogui.hotkey('f5')
+                                # driver_info.get(href)
+                                driver_info.refresh()
+                                time.sleep(3)
+                        # wait = WebDriverWait(driver_info, 10)  # 等待浏览器相应，删除也可以
+                        # pyautogui.rightClick(x=500, y=500)  # 右击图片，位置可根据自己的屏幕调整
+                        # pyautogui.typewrite(['V'])  # 另存为的快捷键为 V
+                        # time.sleep(3)
+                        # pyperclip.copy(custom_path + name[i] + '.jpg')  # 复制文件名加路径到粘贴板
+                        # pyautogui.hotkey('ctrlleft', 'V')  # 粘贴
+                        # time.sleep(1)
+                        # pyautogui.press('enter')  # 确认
+                        # time.sleep(1)
+                        img = driver_info.find_element_by_xpath("//html/body/img")
+                        img.screenshot(custom_path + name[i] + '.jpg')
                         while True:
                             filelist = os.listdir(custom_path)
                             if name[i] + '.jpg' in filelist:
@@ -94,12 +101,12 @@ class Crawl_fc2:
                             else:
                                 print("等待响应")
                                 time.sleep(2)
-                                pyautogui.hotkey('ctrlleft', 'V')  # 粘贴
-                                time.sleep(1)
-                                pyautogui.press('enter')  # 确认
-                                time.sleep(1)
+                                # pyautogui.hotkey('ctrlleft', 'V')  # 粘贴
+                                # time.sleep(1)
+                                # pyautogui.press('enter')  # 确认
+                                # time.sleep(1)
                         # 在txt中加入当前下载的图片名字
-                    time.sleep(2)
+                    time.sleep(0.5)
                     driver_info.quit()
                     print("第 %d 页爬完" % (page + 1))
                     button = "//*[@href='https://fc2club.com/index.php?m=content&c=index&a=lists&catid=12&page=" + str(page + 2) + "']"  #翻页按钮
